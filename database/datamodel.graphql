@@ -1,0 +1,29 @@
+type Organization {
+  id: ID! @unique
+  name: String!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  locations: [Location!]!
+  events: [Event!]!
+}
+
+type Event {
+  id: ID! @unique
+  name: String!
+  date: String!
+  description: String!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  organizationId: String!
+}
+
+type Location {
+  id: ID! @unique
+  name: String!
+  address: String!
+  lattitude: String!
+  longitude: String!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  organizationId: String!
+}

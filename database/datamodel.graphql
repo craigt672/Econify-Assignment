@@ -4,7 +4,8 @@ type Organization {
   createdAt: DateTime!
   updatedAt: DateTime!
   locations: [Location!]!
-  events: [Event!]!
+    @relation(name: "LocationsByOrganization", onDelete: CASCADE)
+  events: [Event!]! @relation(name: "EventsByOrganization", onDelete: CASCADE)
 }
 
 type Event {
@@ -14,16 +15,17 @@ type Event {
   description: String!
   createdAt: DateTime!
   updatedAt: DateTime!
-  organizationId: String!
+  organization: Organization @relation(name: "EventsByOrganization")
 }
 
 type Location {
   id: ID! @unique
   name: String!
   address: String!
-  lattitude: String!
-  longitude: String!
+  lattitude: Float!
+  longitude: Float!
   createdAt: DateTime!
   updatedAt: DateTime!
-  organizationId: String!
+  organization: Organization
+    @relation(name: "LocationsByOrganization", onDelete: CASCADE)
 }

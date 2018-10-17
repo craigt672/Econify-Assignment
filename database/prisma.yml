@@ -5,5 +5,10 @@ endpoint: https://us1.prisma.sh/craig-thomas-e66b6f/econifycc-db/dev
 # Points to the file that holds your data model
 datamodel: datamodel.graphql
 
+# Deploy hook
+hooks:
+  post-deploy:
+    - graphql get-schema --project database
+
 # You can only access the API when providing JWTs that are signed with this secret
-secret: secret123
+secret: test2018

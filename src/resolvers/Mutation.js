@@ -15,17 +15,6 @@ function createOrganization(root, args, context, info) {
   );
 }
 
-function deleteOrganization(root, args, context, info) {
-  return context.db.mutation.deleteOrganization(
-    {
-      where: {
-        id: args.id
-      }
-    },
-    info
-  );
-}
-
 /*
   LOCATION MUTATIONS
 */
@@ -132,7 +121,6 @@ function deleteEvent(root, args, context, info) {
 
 module.exports = {
   createOrganization,
-  deleteOrganization,
   createLocation,
   createEvent,
   updateLocation,
